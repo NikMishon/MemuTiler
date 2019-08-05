@@ -1,0 +1,45 @@
+﻿<Window x:Class="MemuTiler.MainWindow" x:Name="Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        SizeToContent="WidthAndHeight" ResizeMode="CanMinimize"
+        Loaded="MainWindow_OnLoaded" Closing="MainWindow_OnClosing" >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="0, 0, 0, 3">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Новая надстройка" Command="New"/>
+                <MenuItem Header="Сбросить настройки" Click="ResetSettingsItem_OnClick"/>
+                <MenuItem Header="Тайлить Memu\Momo" Click="TileMemuItem_OnClick"></MenuItem>
+                <MenuItem Header="Создать\Обновить ярлыки на рабочем столе" Click="AddShortcutToDesktopMenuItem_OnClick"></MenuItem>
+            </MenuItem>
+        </Menu>
+        
+        <ContentPresenter Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Content="{Binding ElementName=Window, Path=Settings}"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Автоматически добавлять программу в атозагрузку" Margin="3 0" VerticalAlignment="Center"/>
+        <CheckBox Grid.Row="2" Grid.Column="1" x:Name="IsAutoRunCheckBox" IsChecked="{Binding ElementName=Window, Path=Settings.IsAutoRun, UpdateSourceTrigger=PropertyChanged}"
+                  Checked="IsAutoRunCheckBox_OnChecked"  Margin="3 0" VerticalAlignment="Center"/>
+        <Button Grid.Row="2" Grid.Column="2" x:Name="DeleteAutoRunButton" Content="Удалить программу из автозагрузки" Click="DeleteAutoRunButton_OnClick" Margin="3"/>
+        
+    </Grid>
+</Window>
+
+
+
+
+
+
+
+
