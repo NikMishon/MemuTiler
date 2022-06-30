@@ -1,0 +1,3 @@
+[submodule "pcinputlogger"]
+	path = pcinputlogger
+	url = https://github.com/anacrown/pcinputlogger.git
