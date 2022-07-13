@@ -17,6 +17,7 @@ using System.Xml.Serialization;
 using MemuTilerDTO;
 using Microsoft.Win32;
 using IWshRuntimeLibrary;
+using PcInputX;
 using File = System.IO.File;
 
 namespace MemuTiler
@@ -203,6 +204,31 @@ namespace MemuTiler
                 recordViewModel.IsRun = _memuTilerWorker.DoWork(recordViewModel.ToTransferData());
 
             CheckArguments(argv);
+
+            var bShiftPressed = false;
+
+            KeyboardX.Hook();
+            KeyboardX.KeyboardEvent += delegate(object o, KeyboardXEvent ev)
+            {
+                switch (ev.Key)
+                {
+                    case Keys.LShiftKey:
+                    case Keys.RShiftKey:
+                        bShiftPressed = !ev.EventFlags.HasFlag(KeyboardX.KbdllhookstructFlags.LLKHF_UP);
+                        break;
+                    case Keys.Q:
+                    {
+                        if (ev.EventFlags.HasFlag(KeyboardX.KbdllhookstructFlags.LLKHF_UP) &&
+                            ev.EventFlags.HasFlag(KeyboardX.KbdllhookstructFlags.LLKHF_ALTDOWN) &&
+                            bShiftPressed)
+                        {
+                            _memuTilerWorker.TileMemu();
+                        }
+
+                        break;
+                    }
+                }
+            };
         }
 
         private void CheckArguments(string argv)
@@ -328,7 +354,11 @@ namespace MemuTiler
             {
                 WindowState = WindowState.Minimized;
             }
-            else SaveSettings();
+            else
+            {
+                SaveSettings();
+                KeyboardX.UnHook();
+            }
         }
 
         private void DeleteAutoRunButton_OnClick(object sender, RoutedEventArgs e)
