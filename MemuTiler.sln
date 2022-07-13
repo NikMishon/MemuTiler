@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemuTiler", "MemuTiler\MemuTiler.csproj", "{4E49D675-FFED-46AE-B5E9-D2BCA5F4BBD8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemuTilerDTO", "MemuTilerDTO\MemuTilerDTO.csproj", "{B593F5C6-77BE-4C73-A23F-1D7187385AF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcInputX", "pcinputlogger\PcInputX\PcInputX.csproj", "{813AA490-E776-4137-86A9-6AA064892378}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B593F5C6-77BE-4C73-A23F-1D7187385AF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B593F5C6-77BE-4C73-A23F-1D7187385AF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B593F5C6-77BE-4C73-A23F-1D7187385AF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{813AA490-E776-4137-86A9-6AA064892378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{813AA490-E776-4137-86A9-6AA064892378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{813AA490-E776-4137-86A9-6AA064892378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{813AA490-E776-4137-86A9-6AA064892378}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -26,7 +26,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>30</ApplicationRevision>
+    <ApplicationRevision>31</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -169,6 +169,10 @@
     <ProjectReference Include="..\MemuTilerDTO\MemuTilerDTO.csproj">
       <Project>{b593f5c6-77be-4c73-a23f-1d7187385af0}</Project>
       <Name>MemuTilerDTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\pcinputlogger\PcInputX\PcInputX.csproj">
+      <Project>{813AA490-E776-4137-86A9-6AA064892378}</Project>
+      <Name>PcInputX</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
