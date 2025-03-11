@@ -205,29 +205,14 @@ namespace MemuTiler
 
             CheckArguments(argv);
 
-            var bShiftPressed = false;
-
             KeyboardX.Hook();
-            KeyboardX.KeyboardEvent += delegate(object o, KeyboardXEvent ev)
+            KeyboardX.KeyboardEvent += delegate (object o, KeyboardXEvent ev)
             {
-                switch (ev.Key)
-                {
-                    case Keys.LShiftKey:
-                    case Keys.RShiftKey:
-                        bShiftPressed = !ev.EventFlags.HasFlag(KeyboardX.KbdllhookstructFlags.LLKHF_UP);
-                        break;
-                    case Keys.Q:
-                    {
-                        if (ev.EventFlags.HasFlag(KeyboardX.KbdllhookstructFlags.LLKHF_UP) &&
-                            ev.EventFlags.HasFlag(KeyboardX.KbdllhookstructFlags.LLKHF_ALTDOWN) &&
-                            bShiftPressed)
-                        {
-                            _memuTilerWorker.TileMemu();
-                        }
-
-                        break;
-                    }
-                }
+                if (ev.Key != Keys.Q ||
+                    !ev.EventFlags.HasFlag(KeyboardX.KbdllhookstructFlags.LLKHF_UP) ||
+                    !ev.EventFlags.HasFlag(KeyboardX.KbdllhookstructFlags.LLKHF_ALTDOWN))
+                    return;
+                _memuTilerWorker.TileMemu();
             };
         }
 
